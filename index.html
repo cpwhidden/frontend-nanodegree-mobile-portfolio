@@ -27,7 +27,12 @@
 
   <body>
     <header>
-      <a href="/"><img src="img/profilepic.jpg"></a>
+      <a href="/">
+        <picture>
+          <source media="(min-width: 400px)" srcset="img/profilepic_large_2x.jpg 2x, img/profilepic_small"
+          <img src="img/profilepic-100pc.jpg">
+        </picture>
+      </a>
       <p>Cameron Pittman<br><span>Course Developer</span></p>
     </header>
 
@@ -57,7 +62,7 @@
           </li>
 
           <li>
-            <img style="width: 100px;" src="views/images/pizzeria.jpg">
+            <img style="width: 100px;" src="views/images/pizzeria-100pc.jpg">
             <a href="views/pizza.html">Cam's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>
