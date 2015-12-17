@@ -17,7 +17,13 @@ module.exports = function(grunt) {
             width: '100%',
             suffix: '',
             quality: 50
-          }]
+          },
+          {
+          	width: 400,
+          	suffix: '',
+          	quality: 50
+          }
+          ]
         },
         files: [{
           expand: true,
