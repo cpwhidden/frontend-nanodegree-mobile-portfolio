@@ -453,15 +453,16 @@ var resizePizzas = function(size) {
     var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
 
     // Batch request all changes in width to pizza containers, which invalidates layout
+    var newWidths = [];
     for (var i = 0; i < randomPizzas.length; i++) {
       var dx = determineDx(randomPizzas[i], size, windowWidth);
-      var newwidth = (randomPizzas[i].offsetWidth + dx) + 'px';
+      newWidths[i] = (randomPizzas[i].offsetWidth + dx) + 'px';
     }
 
     // Batch update all randomPizza widths, only after layout changes have been calculated.
     // This optimizes performance for the critical rendering path.
-    for (var i = 0; i < randomPizzas.length; i++) {
-      randomPizzas[i].style.width = newwidth;
+    for (var j = 0; j < randomPizzas.length; j++) {
+      randomPizzas[j].style.width = newWidths[j];
     }
   }
 
@@ -520,8 +521,8 @@ function updatePositions() {
 
   // Batches all style changes after all layout invalidation has taken place.
   // This optimizes the critical render path.
-  for (var i = 0; i < items.length; i++) {
-    items[i].style.left = items[i].basicLeft + 100 * phases[i] + 'px';
+  for (var j = 0; j < items.length; j++) {
+    items[j].style.left = items[j].basicLeft + 100 * phases[j] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
