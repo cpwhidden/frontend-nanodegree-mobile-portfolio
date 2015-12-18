@@ -42,3 +42,4 @@ Some useful tips to help you get started:
 * Limited generated pizzas to 24
 * Declared variables used in functions in global scope in order to optimize performance
 * Used 'getElement' functions that are faster than 'querySelector' functions.
+* Optimized pizza CSS for efficient painting
