@@ -541,6 +541,8 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
+// Declare reused variable in global scope to speed function up
+var elem;
 // 'getElement' function is faster
 var movingPizzas = document.getElementById('movingPizzas1')
 
@@ -553,7 +555,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var ySpacing = window.innerHeight / rows;
 
   for (var i = 0; i < cols * rows; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-100pc.png";
     elem.style.height = "100px";
