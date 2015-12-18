@@ -30,16 +30,24 @@ Some useful tips to help you get started:
 
 #### Portfolio page
 
-* Images were compressed to appropriate sizes.
-* CSS inlined
-* JavaScript loaded asynchronously
-* Local font requested before requesting Google font
+* Images were compressed to appropriate sizes, increasing page load speed.
+* CSS inlined, reducing number of round trips during page loading.
+* Google Analytics JavaScript loaded asynchronously, which before was render-blocking on page load.
+* Local font requested before requesting Google font, reducing a round trip request during page load.
 
 #### Pizza page
 
-* Scrolling alogrithms batches layout invalidations first before batching style changes, which optimizes the critical rendering path. 
+* Scrolling alogrithms batches layout invalidations first before batching style changes, which optimizes the critical rendering path and improves scrolling frame rate.
 * Likewise for pizza resizing, all layout invalidations were batched first, then style changes are batched.
-* Limited generated pizzas to 24
-* Declared variables used in functions in global scope in order to optimize performance
-* Used 'getElement' functions that are faster than 'querySelector' functions.
-* Optimized pizza CSS for efficient painting
+* Limited generated pizzas to 24, vastly reducing computation at page load.
+* Declared variables used in functions in global scope in order to speed up computational efficiency.
+* Used 'getElement' functions that are faster than 'querySelector' functions in order to speed up computation efficiency.
+* Optimized pizza CSS for efficient painting by forcing moving pizzas to render in seperately painted layers without backface visibility.
+
+
+### How to build images with Grunt
+
+* Two Gruntfiles are used, each `running grunt-responsive-images`, one for root-folder assets and one for the `views` folder assets.
+* All current dependencies are already included in the repo
+* Configure image build options in the `Gruntfile.js` file if you want different options for your images.
+* Build by `cd`ing into the folder where your Gruntfile is and run `grunt`
