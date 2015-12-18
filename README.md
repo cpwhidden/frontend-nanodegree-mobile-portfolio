@@ -40,3 +40,5 @@ Some useful tips to help you get started:
 * Scrolling alogrithms batches layout invalidations first before batching style changes, which optimizes the critical rendering path. 
 * Likewise for pizza resizing, all layout invalidations were batched first, then style changes are batched.
 * Limited generated pizzas to 24
+* Declared variables used in functions in global scope in order to optimize performance
+* Used 'getElement' functions that are faster than 'querySelector' functions.
